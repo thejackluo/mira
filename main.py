@@ -36,16 +36,25 @@ question = "Who won the FIFA World Cup in the year 1994? "
 
 print(llm_chain.invoke(question))
 
-# S4: Set up HuggingFace Endpoint
-repo_id = "google/flan-t5-xl" # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
-llm = HuggingFaceEndpoint(repo_id=repo_id, model_kwargs={"temperature":0, "max_length":64}, huggingfacehub_api_token=huggingface_api_token)
+# S4: Set up HuggingFace Endpoint (Llama)
+model_id = "meta-llama/Meta-Llama-3-8B" # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
 
-template = """Question: {question}
+pipeline = transformers.pipeline(
+  "text-generation",
+  model="meta-llama/Meta-Llama-3-8B-Instruct",
+  model_kwargs={"torch_dtype": torch.bfloat16},
+  device="cuda",
+)
+pipeline("Hey how are you doing today?")
 
-Answer: Let's think step by step."""
-prompt = PromptTemplate(template=template, input_variables=["question"])
-llm_chain = LLMChain(prompt=prompt, llm=llm)
+# llm = HuggingFaceEndpoint(repo_id=repo_id, model_kwargs={"temperature":0, "max_length":64}, huggingfacehub_api_token=huggingface_api_token)
 
-question = "Who won the FIFA World Cup in the year 1994? "
+# template = """Question: {question}
 
-print(llm_chain.run(question))
+# Answer: Let's think step by step."""
+# prompt = PromptTemplate(template=template, input_variables=["question"])
+# llm_chain = LLMChain(prompt=prompt, llm=llm)
+
+# question = "How many countries are in the world?"
+
+# print(llm_chain.run(question))
