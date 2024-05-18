@@ -5,6 +5,8 @@ from langchain.chains import LLMChain
 from langchain_community.llms import HuggingFaceEndpoint
 from dotenv import load_dotenv
 import os 
+import torch
+import transformers
 
 # S1: Set up HuggingFace API Token
 load_dotenv(override=True) # load dotenv variable
@@ -37,13 +39,14 @@ question = "Who won the FIFA World Cup in the year 1994? "
 print(llm_chain.invoke(question))
 
 # S4: Set up HuggingFace Endpoint (Llama)
+print("S3: Llama")
 model_id = "meta-llama/Meta-Llama-3-8B" # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
 
 pipeline = transformers.pipeline(
   "text-generation",
   model="meta-llama/Meta-Llama-3-8B-Instruct",
   model_kwargs={"torch_dtype": torch.bfloat16},
-  device="cuda",
+  device="cpu",
 )
 pipeline("Hey how are you doing today?")
 
