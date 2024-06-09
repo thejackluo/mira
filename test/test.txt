@@ -1,0 +1,23 @@
+S1: HuggingFace API Token Success: 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
+C:\Users\jack1\AppData\Local\Programs\Python\Python311\Lib\site-packages\huggingface_hub\file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+S2: LangChain
+Setting `pad_token_id` to `eos_token_id`:50256 for open-end generation.
+{'question': 'Who won the FIFA World Cup in the year 1994? ', 'text': "Question: Who won the FIFA World Cup in the year 1994? \n\nAnswer: Let's think step by step. Here are just a few of the amazing players that never came before.\n\nGoalkeeper: Sergio Aguero\n\nGoalkeeper: D.J. Simpson\n\nFirst World Cup: 1936\n\nGoalkeeper: Joe M. Kowalski\n\nPlayer of the Year: Sergio Aguero\n\nSecond"}
+S3: Llama
+C:\Users\jack1\AppData\Local\Programs\Python\Python311\Lib\site-packages\huggingface_hub\file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+config.json: 100%|██████████████████████████████████████████████| 654/654 [00:00<?, ?B/s]
+model.safetensors.index.json: 100%|█████████████████| 23.9k/23.9k [00:00<00:00, 23.2MB/s]
+model-00001-of-00004.safetensors: 100%|█████████████| 4.98G/4.98G [26:17<00:00, 3.15MB/s]
+model-00002-of-00004.safetensors: 100%|█████████████| 5.00G/5.00G [25:39<00:00, 3.25MB/s] 
+model-00003-of-00004.safetensors: 100%|█████████████| 4.92G/4.92G [30:00<00:00, 2.73MB/s] 
+model-00004-of-00004.safetensors: 100%|█████████████| 1.17G/1.17G [06:05<00:00, 3.20MB/s] 
+Downloading shards: 100%|██████████████████████████████| 4/4 [1:28:10<00:00, 1322.54s/it] 
+Loading checkpoint shards: 100%|███████████████████████████| 4/4 [03:50<00:00, 57.51s/it]
+generation_config.json: 100%|███████████████████████████████████| 177/177 [00:00<?, ?B/s]
+tokenizer_config.json: 100%|████████████████████████| 50.6k/50.6k [00:00<00:00, 3.23MB/s]
+tokenizer.json: 100%|███████████████████████████████| 9.09M/9.09M [00:02<00:00, 3.22MB/s]
+special_tokens_map.json: 100%|████████████████████████████████| 73.0/73.0 [00:00<?, ?B/s]
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
