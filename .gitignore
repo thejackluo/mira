@@ -163,4 +163,4 @@ cython_debug/
 
 # .env
 .env
-/Meta-Llama-3-8B/original
+/Meta-Llama-3-8B
