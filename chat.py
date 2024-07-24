@@ -50,16 +50,16 @@ def is_harmful(message):
             return True
     return False
 
-""" EDIT TO FIT WITH HUGGINGFACE PIPELINE
+# Initialize HuggingFace pipeline
+model_name = "Meta-Llama-3-8B"  # Replace with the model you want to use
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+pipeline = pipeline("text-generation", model=model, tokenizer=tokenizer)
+
 # Function to generate a response from the model
 def generate_response(prompt):
-    response = openai.Completion.create(
-        engine="text-davinci-003",  # Specify the engine
-        prompt=prompt,
-        max_tokens=150  # Adjust based on your requirements
-    )
-    return response.choices[0].text.strip()
-"""
+    response = pipeline(prompt, max_length=150, num_return_sequences=1)[0]["generated_text"]
+    return response.strip()
 
 # Function to process user message
 def process_user_message(user_message):
