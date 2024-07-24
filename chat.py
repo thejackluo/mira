@@ -51,7 +51,7 @@ def is_harmful(message):
     return False
 
 # Initialize HuggingFace pipeline
-model_name = "Meta-Llama-3-8B"  # Replace with the model you want to use
+model_name = "gpt2"  # Replace with the model you want to use
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 pipeline = pipeline("text-generation", model=model, tokenizer=tokenizer)
